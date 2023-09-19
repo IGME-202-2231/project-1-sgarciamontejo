@@ -4,8 +4,8 @@
 
 ### Student Info
 
--   Name: YOUR NAME
--   Section: ##
+-   Name: Sebastian Garcia Montejo
+-   Section: 04
 
 ## Game Design
 
