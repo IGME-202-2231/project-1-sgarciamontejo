@@ -22,11 +22,11 @@ _A brief explanation of your game. Inculde what is the objective for the player.
 ### Controls
 
 -   Movement
-    -   Up: 
-    -   Down: 
-    -   Left: 
-    -   Right: 
--   Fire: 
+    -   Up: W
+    -   Down: A
+    -   Left: S
+    -   Right: D
+-   Fire: Space / Left Mouse Button
 
 ## You Additions
 
