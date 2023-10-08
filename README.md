@@ -9,11 +9,11 @@
 
 ## Game Design
 
--   Camera Orientation: _How are the art assets viewed from? (ie. topdown or side)_
--   Camera Movement: _How does the camera move in your game? (if at all)_
--   Player Health: _How are you handling player health? (healthbar, lives, ?)_
--   End Condition: _How does a game/round/level end?_
--   Scoring: _How does the player earn points in your game?_
+-   Camera Orientation: _Topdown_
+-   Camera Movement: _Vertical scroll_
+-   Player Health: _Lives_
+-   End Condition: _Waves will end when all enemies are defeated_
+-   Scoring: _Defeated enemies will reward the player with points_
 
 ### Game Description
 
@@ -22,20 +22,25 @@ _A brief explanation of your game. Inculde what is the objective for the player.
 ### Controls
 
 -   Movement
-    -   Up: W
-    -   Down: A
-    -   Left: S
-    -   Right: D
--   Fire: Space / Left Mouse Button
+    -   Ship 1
+        -   Up: W
+        -   Down: A
+        -   Left: S
+        -   Right: D
+    -   Ship 2
+        -   Up: Up Arrow
+        -   Down: Down Arrow
+        -   Left: Left Arrow
+        -   Right: Right Arrow
+-   Fire: Space
 
 ## You Additions
 
-_List out what you added to your game to make it different for you_
+_Game will be infinite, with each defeated boss increasing the overall difficulty of the game (boosts in nuumbers of enemies and all enemies health, while player stays the same). The player will be granted powerups that will temporarily allow different attack patterns) Player will also be able to control two ships._
 
 ## Sources
 
--   _List all project sources here –models, textures, sound clips, assets, etc._
--   _If an asset is from the Unity store, include a link to the page and the author’s name_
+-   _https://www.spriters-resource.com/nes/guardianlegend/?source=genre_
 
 ## Known Issues
 
