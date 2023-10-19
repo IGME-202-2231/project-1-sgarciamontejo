@@ -18,9 +18,9 @@ public class CollisionManager : MonoBehaviour
     [SerializeField]
     List<GameObject> enemies;
 
-    List<SpriteInfo> playerSprites;
-    List<SpriteInfo> missileSprites;
-    List<SpriteInfo> enemySprites;
+    List<SpriteInfo> playerSprites = new List<SpriteInfo>();
+    List<SpriteInfo> missileSprites = new List<SpriteInfo>();
+    List<SpriteInfo> enemySprites = new List<SpriteInfo>();
 
     public float totalCamHeight;
     public float totalCamWidth;
@@ -28,8 +28,11 @@ public class CollisionManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        totalCamHeight = Camera.main.orthographicSize * 2f;
+        totalCamWidth = totalCamHeight * Camera.main.aspect;
+
         playerSprites.Add(Player1.GetComponent<SpriteInfo>());
-        playerSprites.Add(Player1.GetComponent<SpriteInfo>());
+        playerSprites.Add(Player2.GetComponent<SpriteInfo>());
         foreach (GameObject f in enemies)
         {
             enemySprites.Add(f.GetComponent<SpriteInfo>());
@@ -38,9 +41,6 @@ public class CollisionManager : MonoBehaviour
         {
             missileSprites.Add(j.GetComponent<SpriteInfo>());
         }
-
-        totalCamHeight = Camera.main.orthographicSize * 2f;
-        totalCamWidth = totalCamHeight * Camera.main.aspect;
     }
 
     // Update is called once per frame

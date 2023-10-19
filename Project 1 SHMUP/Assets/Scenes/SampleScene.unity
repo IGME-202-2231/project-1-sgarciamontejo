@@ -225,7 +225,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &147643906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -303,7 +303,7 @@ RectTransform:
   m_Children:
   - {fileID: 1439098700}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -700,6 +700,7 @@ GameObject:
   - component: {fileID: 625690605}
   - component: {fileID: 625690604}
   - component: {fileID: 625690608}
+  - component: {fileID: 625690609}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Untagged
@@ -720,6 +721,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_MovementController: {fileID: 625690605}
+  missile: {fileID: 3274248043155059653, guid: 48e69c78985cb8f49849520851d0e77b, type: 3}
 --- !u!114 &625690605
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -793,7 +795,19 @@ MonoBehaviour:
     m_ActionId: 82959e24-cf84-40bc-a7cc-f433233c270c
     m_ActionName: Player/Move[/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 625690604}
+        m_TargetAssemblyTypeName: InputController, Assembly-CSharp
+        m_MethodName: OnFire
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: caf0f43f-7f9c-49a3-b9ea-68eae9508121
     m_ActionName: Player/Fire[/Keyboard/space]
   - m_PersistentCalls:
@@ -841,6 +855,27 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &625690609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 625690603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cc7f96bce75590439a74814689fc62c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  render: {fileID: 1024227}
+  color: {r: 0, g: 0, b: 0, a: 0}
+  minX: 0
+  x: 0
+  maxX: 0
+  minY: 0
+  y: 0
+  maxY: 0
+  size: {x: 0, y: 0}
 --- !u!1 &633442196
 GameObject:
   m_ObjectHideFlags: 0
@@ -858,7 +893,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &633442197
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -903,6 +938,53 @@ Transform:
   m_GameObject: {fileID: 633442196}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &799363683
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 799363685}
+  - component: {fileID: 799363684}
+  m_Layer: 0
+  m_Name: SpawnManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &799363684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 799363683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b81860e85dcac7f4097a909dd31d948c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 8621620051153846233, guid: c2661b64ee5bd5443bee19b81262db98, type: 3}
+  collisionManager: {fileID: 1568109862}
+  enemies: []
+--- !u!4 &799363685
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 799363683}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.30389085, y: -0.27120158, z: -9.979338}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1075,6 +1157,7 @@ GameObject:
   - component: {fileID: 1462957335}
   - component: {fileID: 1462957334}
   - component: {fileID: 1462957336}
+  - component: {fileID: 1462957337}
   m_Layer: 0
   m_Name: Player1
   m_TagString: Untagged
@@ -1111,6 +1194,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_MovementController: {fileID: 1462957335}
+  missile: {fileID: 3274248043155059653, guid: 48e69c78985cb8f49849520851d0e77b, type: 3}
 --- !u!114 &1462957335
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1168,7 +1252,19 @@ MonoBehaviour:
     m_ActionId: 82959e24-cf84-40bc-a7cc-f433233c270c
     m_ActionName: Player/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1462957334}
+        m_TargetAssemblyTypeName: InputController, Assembly-CSharp
+        m_MethodName: OnFire
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: caf0f43f-7f9c-49a3-b9ea-68eae9508121
     m_ActionName: Player/Fire[/Keyboard/space]
   - m_PersistentCalls:
@@ -1216,3 +1312,74 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &1462957337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1462957331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cc7f96bce75590439a74814689fc62c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  render: {fileID: 622364730}
+  color: {r: 0, g: 0, b: 0, a: 0}
+  minX: 0
+  x: 0
+  maxX: 0
+  minY: 0
+  y: 0
+  maxY: 0
+  size: {x: 0, y: 0}
+--- !u!1 &1568109861
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1568109863}
+  - component: {fileID: 1568109862}
+  m_Layer: 0
+  m_Name: Collision
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1568109862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1568109861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef1e18819481f8243b397ff6fcc1984e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player1: {fileID: 1462957331}
+  Player2: {fileID: 625690603}
+  missiles: []
+  enemies: []
+  totalCamHeight: 0
+  totalCamWidth: 0
+--- !u!4 &1568109863
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1568109861}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.30389085, y: -0.27120158, z: -9.979338}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

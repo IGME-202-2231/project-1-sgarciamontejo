@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9198226831930556899}
   - component: {fileID: 2383466034971132397}
+  - component: {fileID: -6382800191776839193}
   - component: {fileID: 6040684623609059136}
   m_Layer: 0
   m_Name: friendlyMissile
@@ -85,6 +86,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-6382800191776839193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3274248043155059653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cc7f96bce75590439a74814689fc62c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  render: {fileID: 2383466034971132397}
+  color: {r: 0, g: 0, b: 0, a: 0}
+  minX: 0
+  x: 0
+  maxX: 0
+  minY: 0
+  y: 0
+  maxY: 0
+  size: {x: 0, y: 0}
 --- !u!114 &6040684623609059136
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -97,3 +119,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e2b53d066d6f9943a0e3700de553e69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  direction: {x: 0, y: 1}
