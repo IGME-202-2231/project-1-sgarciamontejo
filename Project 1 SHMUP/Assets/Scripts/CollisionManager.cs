@@ -10,17 +10,15 @@ public class CollisionManager : MonoBehaviour
 {
     [SerializeField]
     GameObject Player1;
-    [SerializeField]
-    GameObject Player2;
+    //[SerializeField]
+    //GameObject Player2;
 
     [SerializeField]
-    List<GameObject> missiles;
-    [SerializeField]
-    List<GameObject> enemies;
+    SpawnManager Spawn_Manager;
 
-    List<SpriteInfo> playerSprites = new List<SpriteInfo>();
-    List<SpriteInfo> missileSprites = new List<SpriteInfo>();
-    List<SpriteInfo> enemySprites = new List<SpriteInfo>();
+    SpriteInfo playerSprite;
+    public List<SpriteInfo> enemySprites = new List<SpriteInfo>();
+    public List<SpriteInfo> missileSprites = new List<SpriteInfo>();
 
     public float totalCamHeight;
     public float totalCamWidth;
@@ -31,16 +29,8 @@ public class CollisionManager : MonoBehaviour
         totalCamHeight = Camera.main.orthographicSize * 2f;
         totalCamWidth = totalCamHeight * Camera.main.aspect;
 
-        playerSprites.Add(Player1.GetComponent<SpriteInfo>());
-        playerSprites.Add(Player2.GetComponent<SpriteInfo>());
-        foreach (GameObject f in enemies)
-        {
-            enemySprites.Add(f.GetComponent<SpriteInfo>());
-        }
-        foreach (GameObject j in missiles)
-        {
-            missileSprites.Add(j.GetComponent<SpriteInfo>());
-        }
+        playerSprite = Player1.GetComponent<SpriteInfo>();
+        //playerSprites.Add(Player2.GetComponent<SpriteInfo>());
     }
 
     // Update is called once per frame
@@ -48,6 +38,7 @@ public class CollisionManager : MonoBehaviour
     {
         
     }
+
 
     bool AABBCollision(SpriteInfo sprite1, SpriteInfo sprite2)
     {

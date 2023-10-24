@@ -10,14 +10,14 @@ public class SpawnManager : MonoBehaviour
     [SerializeField]
     CollisionManager collisionManager;
 
-    [SerializeField]
-    List<GameObject> enemies = new List<GameObject>();
+    List<SpriteInfo> enemies;
 
     protected SpawnManager() { }
 
     // Start is called before the first frame update
     void Start()
     {
+        enemies = collisionManager.enemySprites;
         Spawn();
     }
 
@@ -60,7 +60,7 @@ public class SpawnManager : MonoBehaviour
 
             //randomize positions
             Vector2 spawnPosition = new Vector2(
-                Random.Range(-10f, 10f),
+                Random.Range(-7.3f, 7.3f),
                 Random.Range(6f, 15f)
                 );
             temp[i].transform.position = spawnPosition;
@@ -71,16 +71,16 @@ public class SpawnManager : MonoBehaviour
 
         foreach(GameObject go in temp)
         {
-            enemies.Add(go);
+            enemies.Add((SpriteInfo)go.GetComponent("SpriteInfo"));
         }
     }
 
-    private void DestroyEnemies()
+    /*private void DestroyEnemies()
     {
         foreach (GameObject enemy in enemies)
         {
             Destroy(enemy);
         }
         enemies.Clear();
-    }
+    }*/
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.SearchService;
 using UnityEngine;
 
 public class MissileController : MonoBehaviour
@@ -32,13 +33,13 @@ public class MissileController : MonoBehaviour
         //add velocity to pos
         transform.position += (Vector3)velocity;
 
-        if (direction == Vector2.up)
+        /*if (direction == Vector2.up)
         {
             if (transform.position.y > (totalCamHeight / 2) + 1)
             {
                 Debug.Log("cool");
                 Destroy(transform.GameObject());
             }
-        }
+        }*/
     }
 }

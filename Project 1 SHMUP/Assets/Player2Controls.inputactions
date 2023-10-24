@@ -1,5 +1,5 @@
 {
-    "name": "Player2Controls 1",
+    "name": "Player2Controls",
     "maps": [
         {
             "name": "Player",
@@ -83,7 +83,7 @@
                 {
                     "name": "",
                     "id": "5daf0a4a-0e1b-40a3-b490-43573d7a4be4",
-                    "path": "<Keyboard>/space",
+                    "path": "<Keyboard>/rightCtrl",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
