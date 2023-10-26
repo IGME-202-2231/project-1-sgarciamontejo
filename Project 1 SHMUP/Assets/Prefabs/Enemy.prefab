@@ -130,6 +130,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00fafe98fb363c948b400d4035fe872f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collisionManager: {fileID: 0}
+  missile: {fileID: 3795747227522197839, guid: df2347ec46a94964cb15f8ac95b24360, type: 3}
+  velocity: {x: 0, y: 0}
+  direction: {x: 0, y: -1}
 --- !u!114 &7280615264603481543
 MonoBehaviour:
   m_ObjectHideFlags: 0

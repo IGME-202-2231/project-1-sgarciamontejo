@@ -17,6 +17,8 @@ public class SpriteInfo : MonoBehaviour
     public float y;
     public float maxY;
 
+    public bool friendly;
+
     public Vector2 size;
     void Start()
     {
@@ -29,12 +31,12 @@ public class SpriteInfo : MonoBehaviour
     {
         render.color = color;
 
-        minX = render.transform.position.x - (size.x / 2);
+        minX = render.transform.position.x - (size.x);
         x = render.transform.position.x;
-        maxX = render.transform.position.x + (size.x / 2);
+        maxX = render.transform.position.x + (size.x);
 
-        minY = render.transform.position.y - (size.y / 2);
+        minY = render.transform.position.y - (size.y);
         y = render.transform.position.y;
-        maxY = render.transform.position.y + (size.y / 2);
+        maxY = render.transform.position.y + (size.y);
     }
 }

@@ -10,6 +10,9 @@ public class MissileController : MonoBehaviour
     [SerializeField]
     Vector2 direction;
 
+    [SerializeField]
+    CollisionManager collisionManager;
+
     float speed = 3.5f;
     Vector2 velocity;
 
@@ -19,6 +22,14 @@ public class MissileController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameObject Collision = GameObject.Find("Collision");
+        collisionManager = Collision.GetComponent<CollisionManager>();
+        SpriteInfo sprite = (SpriteInfo)transform.GetComponent("SpriteInfo");
+        collisionManager.onAddSprite(sprite, "Missile");
+        if(!sprite.friendly)
+        {
+            speed = 3f;
+        }
         totalCamHeight = Camera.main.orthographicSize * 2f;
         totalCamWidth = totalCamHeight * Camera.main.aspect;
     }
@@ -33,13 +44,21 @@ public class MissileController : MonoBehaviour
         //add velocity to pos
         transform.position += (Vector3)velocity;
 
-        /*if (direction == Vector2.up)
+        if (direction == Vector2.up)
         {
-            if (transform.position.y > (totalCamHeight / 2) + 1)
+            if (transform.position.y > (totalCamHeight / 2) + .25)
             {
-                Debug.Log("cool");
-                Destroy(transform.GameObject());
+                collisionManager.onRemoveSprite((SpriteInfo)transform.GetComponent("SpriteInfo"), "Missile");
+                Destroy(transform.gameObject);
             }
-        }*/
+        }
+        else if(direction == Vector2.down)
+        {
+            if (transform.position.y < -(totalCamHeight / 2) - .25)
+            {
+                collisionManager.onRemoveSprite((SpriteInfo)transform.GetComponent("SpriteInfo"), "Missile");
+                Destroy(transform.gameObject);
+            }
+        }
     }
 }

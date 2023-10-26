@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
@@ -7,39 +8,28 @@ public class SpawnManager : MonoBehaviour
     [SerializeField]
     GameObject enemyPrefab;
 
-    [SerializeField]
-    CollisionManager collisionManager;
-
-    List<SpriteInfo> enemies;
+    int ran;
 
     protected SpawnManager() { }
 
     // Start is called before the first frame update
     void Start()
     {
-        enemies = collisionManager.enemySprites;
         Spawn();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (enemies != null)
-        {
-            for (int i = enemies.Count-1; i >= 0; i--)
-            {
-                //Debug.Log(enemies[i].transform.position.y);
-;                if (enemies[i].transform.position.y < (-collisionManager.totalCamHeight / 2))
-                {
-                    Destroy(enemies[i]);
-                    enemies.RemoveAt(i);
-                }
-            }
-        }
+        
 
-        if (enemies.Count < 5) //spawn more enemies if below 5
+        if (transform.childCount < 5) //spawn more enemies if below 5
         {
-            Spawn();
+            ran = Random.Range(5, 15);
+            for (int i = 0; i < ran; i++)
+            {
+                Spawn();
+            }
         }
     }
 
@@ -50,37 +40,11 @@ public class SpawnManager : MonoBehaviour
 
     public void Spawn()
     {
-        List<GameObject> temp = new List<GameObject>();
-        int ran = Random.Range(5, 15);
-        //DestroyAnimals();
-        for (int i = 0; i < ran; i++)
-        {
-
-            temp.Add(SpawnCreature());
-
-            //randomize positions
-            Vector2 spawnPosition = new Vector2(
-                Random.Range(-7.3f, 7.3f),
-                Random.Range(6f, 15f)
-                );
-            temp[i].transform.position = spawnPosition;
-
-
-            //enemies[i].color = Random.ColorHSV(0, 1, 1, 1, 1, 1);
-        }
-
-        foreach(GameObject go in temp)
-        {
-            enemies.Add((SpriteInfo)go.GetComponent("SpriteInfo"));
-        }
+        //randomize positions
+        Vector2 spawnPosition = new Vector2(
+            Random.Range(-7.3f, 7.3f),
+            Random.Range(6f, 15f)
+            );
+        SpawnCreature().transform.position = spawnPosition;
     }
-
-    /*private void DestroyEnemies()
-    {
-        foreach (GameObject enemy in enemies)
-        {
-            Destroy(enemy);
-        }
-        enemies.Clear();
-    }*/
 }

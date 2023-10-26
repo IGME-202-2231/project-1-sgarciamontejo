@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
@@ -11,7 +12,7 @@ public class InputController : MonoBehaviour
     [SerializeField]
     MovementController m_MovementController;
     [SerializeField]
-    CollisionManager cm;
+    GameObject missileManager;
     [SerializeField]
     GameObject missile;
 
@@ -29,10 +30,11 @@ public class InputController : MonoBehaviour
         //shooting
         if (context.performed)
         {
+            Debug.Log("performed");
             if (!(Time.time < cooldownTimestamp))
             {
                 cooldownTimestamp = Time.time + cooldown; //firerate - cooldown
-                cm.missileSprites.Add((SpriteInfo)Instantiate(missile, transform.position, Quaternion.identity).GetComponent("SpriteInfo"));
+                Instantiate(missile, transform.position, Quaternion.identity, missileManager.transform);
             }
         }
     }

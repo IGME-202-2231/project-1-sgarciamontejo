@@ -17,11 +17,16 @@ public class CollisionManager : MonoBehaviour
     SpawnManager Spawn_Manager;
 
     SpriteInfo playerSprite;
-    public List<SpriteInfo> enemySprites = new List<SpriteInfo>();
-    public List<SpriteInfo> missileSprites = new List<SpriteInfo>();
+    List<SpriteInfo> enemySprites = new List<SpriteInfo>();
+    List<SpriteInfo> missileSprites = new List<SpriteInfo>();
 
     public float totalCamHeight;
     public float totalCamWidth;
+
+    public int enemyCount = 0;
+    public int missileCount = 0;
+
+    int Score = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -36,7 +41,29 @@ public class CollisionManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(enemySprites != null && missileSprites != null)
+        {
+            for (int i = enemySprites.Count - 1; i >= 0; i--)
+            {
+                for (int j = missileSprites.Count - 1; j >= 0; j--)
+                {
+                    if (enemySprites[i].friendly != missileSprites[j].friendly && AABBCollision(enemySprites[i], missileSprites[j]))
+                    {
+                        Debug.Log("COLLIDE");
+                        Destroy(enemySprites[i].GameObject());
+                        Destroy(missileSprites[j].GameObject());
+
+                        enemySprites.Remove(enemySprites[i]);
+                        missileSprites.Remove(missileSprites[j]);
+
+                        enemyCount--;
+                        missileCount--;
+
+                        break;
+                    }
+                }
+            }
+        }
     }
 
 
@@ -51,5 +78,35 @@ public class CollisionManager : MonoBehaviour
             return true;
         }
         return false;
+    }
+
+    public void onAddSprite(SpriteInfo sprite, string type)
+    {
+        if(type == "Missile")
+        {
+            missileSprites.Add(sprite);
+            missileCount++;
+        }
+        else
+        {
+            enemySprites.Add(sprite);
+            enemyCount++;
+        }
+    }
+
+    public void onRemoveSprite(SpriteInfo sprite, string type)
+    {
+        if (type == "Missile")
+        {
+            missileSprites.Remove(sprite);
+            missileCount--;
+        }
+        else
+        {
+            Debug.Log("mreow");
+            enemySprites.Remove(sprite);
+            enemyCount--;
+            Score
+        }
     }
 }
