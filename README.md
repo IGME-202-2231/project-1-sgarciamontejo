@@ -1,4 +1,4 @@
-# Project PROJECT_NAME
+# Project Alien Invader
 
 [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Here-Cheatsheet)
 
@@ -17,7 +17,7 @@
 
 ### Game Description
 
-_A brief explanation of your game. Inculde what is the objective for the player. Think about what would go on the back of a game box._
+_A classic shoot-em-up game, except you control two spaceships at once. Fight off aliens and enemy ships in order to keep flying through space!_
 
 ### Controls
 
@@ -28,19 +28,20 @@ _A brief explanation of your game. Inculde what is the objective for the player.
         -   Left: S
         -   Right: D
     -   Ship 2
-        -   Up: Up Arrow
-        -   Down: Down Arrow
-        -   Left: Left Arrow
-        -   Right: Right Arrow
+        -   Up: O
+        -   Down: L
+        -   Left: K
+        -   Right: ;
 -   Fire: Space
 
 ## You Additions
 
-_Game will be infinite, with each defeated boss increasing the overall difficulty of the game (boosts in nuumbers of enemies and all enemies health, while player stays the same). The player will be granted powerups that will temporarily allow different attack patterns) Player will also be able to control two ships._
+_Game will be infinite. Player will also be able to control two ships._
 
 ## Sources
 
 -   _https://www.spriters-resource.com/nes/guardianlegend/?source=genre_
+-   _https://www.spriters-resource.com/fullview/149502/_
 
 ## Known Issues
 
