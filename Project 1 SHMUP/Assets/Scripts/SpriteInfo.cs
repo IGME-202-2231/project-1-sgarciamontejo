@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SpriteInfo : MonoBehaviour
@@ -29,7 +30,7 @@ public class SpriteInfo : MonoBehaviour
 
     void Update()
     {
-        render.color = color;
+        //render.color = color;
 
         minX = render.transform.position.x - (size.x);
         x = render.transform.position.x;
@@ -38,5 +39,19 @@ public class SpriteInfo : MonoBehaviour
         minY = render.transform.position.y - (size.y);
         y = render.transform.position.y;
         maxY = render.transform.position.y + (size.y);
+    }
+
+    public void hit()
+    {
+        StartCoroutine(coroutineHit());
+    }
+
+    private IEnumerator coroutineHit()
+    {
+        render.color = Color.red;
+        Debug.Log("HITTTTT");
+
+        yield return new WaitForSeconds(.1f);
+        render.color = Color.white;
     }
 }

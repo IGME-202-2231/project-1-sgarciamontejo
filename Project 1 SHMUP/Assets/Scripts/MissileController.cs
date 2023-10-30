@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
-using UnityEditor.SearchService;
 using UnityEngine;
 
 public class MissileController : MonoBehaviour
@@ -42,11 +41,13 @@ public class MissileController : MonoBehaviour
         velocity = direction * speed * Time.deltaTime;
 
         //add velocity to pos
-        transform.position += (Vector3)velocity;
+        Vector3 pos = transform.position;
+        pos += (Vector3)velocity;
+        //pos.z = 0;
 
         if (direction == Vector2.up)
         {
-            if (transform.position.y > (totalCamHeight / 2) + .25)
+            if (pos.y > (totalCamHeight / 2) + .25)
             {
                 collisionManager.onRemoveSprite((SpriteInfo)transform.GetComponent("SpriteInfo"), "Missile");
                 Destroy(transform.gameObject);
@@ -54,11 +55,12 @@ public class MissileController : MonoBehaviour
         }
         else if(direction == Vector2.down)
         {
-            if (transform.position.y < -(totalCamHeight / 2) - .25)
+            if (pos.y < -(totalCamHeight / 2) - .25)
             {
                 collisionManager.onRemoveSprite((SpriteInfo)transform.GetComponent("SpriteInfo"), "Missile");
                 Destroy(transform.gameObject);
             }
         }
+        transform.position = pos;
     }
 }

@@ -12,7 +12,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField]
     GameObject missile;
 
-    float speed = 1f;
+    [SerializeField] float speed = 1f;
     public Vector2 velocity = Vector2.zero;
     public Vector2 direction = Vector2.down;
 
@@ -22,6 +22,9 @@ public class EnemyController : MonoBehaviour
     float cooldown = 2f;
     float cooldownTimestamp;
     float ran;
+
+    [SerializeField]
+    bool type; // true - enemy1 | false - enemy2
 
     // Start is called before the first frame update
     void Start()
@@ -39,11 +42,14 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ran = Random.Range(.7f, 2.2f); //random cool down addition
-        if (!(Time.time < cooldownTimestamp))
+        if (type)
         {
-            cooldownTimestamp = Time.time + cooldown + ran; //firerate - cooldown
-            Instantiate(missile, transform.position, Quaternion.identity, missileManager.transform);
+            ran = Random.Range(.7f, 2.2f); //random cool down addition
+            if (!(Time.time < cooldownTimestamp))
+            {
+                cooldownTimestamp = Time.time + cooldown + ran; //firerate - cooldown
+                Instantiate(missile, transform.position, Quaternion.identity, missileManager.transform);
+            }
         }
 
         direction = direction.normalized;
