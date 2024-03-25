@@ -78,7 +78,6 @@ public class CollisionManager : MonoBehaviour
                     {
                         if (enemySprites[i].friendly != missileSprites[j].friendly && AABBCollision(enemySprites[i], missileSprites[j]))
                         { //When collision occurs, remove both sprites and add score
-                            Debug.Log("COLLIDE");
                             Destroy(enemySprites[i].GameObject());
                             Destroy(missileSprites[j].GameObject());
 
@@ -110,7 +109,6 @@ public class CollisionManager : MonoBehaviour
                             { //When collision occurs, remove missile sprite and remove a life
                                 playerSprites[i].hit();
 
-                                Debug.Log("COLLIDEplayer");
                                 Destroy(missileSprites[j].GameObject());
                                 missileSprites.Remove(missileSprites[j]);
                                 missileCount--;
@@ -128,7 +126,6 @@ public class CollisionManager : MonoBehaviour
                             { //When collision occurs, remove missile sprite and remove a life
                                 playerSprites[i].hit();
 
-                                Debug.Log("COLLIDEplayer");
                                 Destroy(enemySprites[j].GameObject());
                                 enemySprites.Remove(enemySprites[j]);
                                 enemyCount--;
@@ -153,7 +150,6 @@ public class CollisionManager : MonoBehaviour
             sprite1.minY < sprite2.maxY &&
             sprite1.maxY > sprite2.minY)
         {
-            //Debug.Log("yeppp");
             return true;
         }
         return false;
@@ -182,7 +178,6 @@ public class CollisionManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("mreow");
             enemySprites.Remove(sprite);
             enemyCount--;
         }
@@ -192,7 +187,6 @@ public class CollisionManager : MonoBehaviour
     {
         if (player == "player1")
         {
-            Debug.Log("1");
             Destroy(player1LifeSprites[player1Lives-1]);
 
             player1Lives--;
@@ -204,7 +198,6 @@ public class CollisionManager : MonoBehaviour
         }
         else if (player == "player2")
         {
-            Debug.Log("2");
             Destroy(player2LifeSprites[2 - (player2Lives-1)]);
 
             player2Lives--;

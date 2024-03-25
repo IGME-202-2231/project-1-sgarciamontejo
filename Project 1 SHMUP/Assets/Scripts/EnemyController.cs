@@ -62,7 +62,6 @@ public class EnemyController : MonoBehaviour
 
         if(transform.position.y < -(totalCamHeight/2))
         {
-            Debug.Log("offscreen");
             collisionManager.onRemoveSprite((SpriteInfo)transform.GetComponent("SpriteInfo"), "Enemy");
             Destroy(transform.gameObject);
         }

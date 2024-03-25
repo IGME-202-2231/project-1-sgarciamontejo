@@ -49,7 +49,6 @@ public class SpriteInfo : MonoBehaviour
     private IEnumerator coroutineHit()
     {
         render.color = Color.red;
-        Debug.Log("HITTTTT");
 
         yield return new WaitForSeconds(.1f);
         render.color = Color.white;

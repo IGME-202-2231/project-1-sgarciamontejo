@@ -22,7 +22,6 @@ public class InputController : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
         m_MovementController.direction = context.ReadValue<Vector2>();
-        //Debug.Log(context.ToString());
     }
 
     public void OnFire(InputAction.CallbackContext context)
@@ -30,7 +29,6 @@ public class InputController : MonoBehaviour
         //shooting
         if (context.performed)
         {
-            Debug.Log("performed");
             if (!(Time.time < cooldownTimestamp))
             {
                 cooldownTimestamp = Time.time + cooldown; //firerate - cooldown

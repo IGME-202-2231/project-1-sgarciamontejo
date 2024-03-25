@@ -26,7 +26,6 @@ public class MovementController : MonoBehaviour
     void Update()
     {
         SpriteInfo sprite = (SpriteInfo)transform.gameObject.GetComponent("SpriteInfo");
-        //Debug.Log(sprite.minY);
         Vector3 currentPosition = transform.position;
         if (currentPosition.x > totalCamWidth / 2)
         {
