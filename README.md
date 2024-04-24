@@ -1,7 +1,5 @@
 # Project Alien Invader
 
-[Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Here-Cheatsheet)
-
 ### Student Info
 
 -   Name: Sebastian Garcia Montejo
@@ -34,7 +32,7 @@ _A classic shoot-em-up game, except you control two spaceships at once. Fight of
         -   Right: ;
 -   Fire: Space
 
-## You Additions
+## Your Additions
 
 _Game will be infinite. Player will also be able to control two ships._
 
